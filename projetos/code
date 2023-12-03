@@ -1,0 +1,115 @@
+// ---Bibliotecas--- 
+#include <Adafruit_Sensor.h>
+#include <LiquidCrystal.h>
+#include "DHT.h"
+#include <RTClib.h>
+#include <Servo.h>
+
+#define DHTPIN 12 // pino que estamos conectado
+#define DHTTYPE DHT11 // DHT 11
+#define AMARELO 8 // lampada
+#define VERMELHO 9 // cooler
+#define SERVO 11 // servo motor
+
+
+DHT dht(DHTPIN, DHTTYPE);
+
+// Declaração de objetos 
+LiquidCrystal lcd(7,6,5,4,3,2);
+RTC_DS1307 rtc;
+Servo s;
+
+
+// Variaveis Globais
+int pos;
+int Hor;
+int Min;
+int Sec;
+int Data;
+int falta;
+int Dia; 
+int i;
+ 
+uint8_t   date;
+
+void setup ()
+{
+  s.attach(SERVO);
+  Serial.begin(9600);
+  rtc.begin();
+  pinMode(AMARELO, OUTPUT);
+  pinMode(VERMELHO, OUTPUT);
+  lcd.begin(16,2);
+  lcd.clear();
+  dht.begin();
+  rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+  s.write(0); // Inicia motor posição zero
+}
+
+void loop()
+{
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+  
+// LCD
+  lcd.setCursor(0,0);
+  lcd.print("T:");
+  lcd.print(t);
+  lcd.print("C ");
+  lcd.print("U:");
+  lcd.print(h);
+  lcd.print("% ");
+  lcd.setCursor(0,1);
+  lcd.print(Hor);
+  lcd.print(":");
+  lcd.print(Min,DEC);
+  lcd.print(" F: ");
+  lcd.print(falta);
+  lcd.print(" dias  ");
+  Serial.print(Min,DEC);
+  
+  DateTime now = rtc.now();
+//rtc.adjust(DateTime(2023,1,1,1,20,30));
+  Hor = rtc.now().hour();
+  Min = rtc.now().minute();
+  Sec = rtc.now().second();
+  Data = rtc.now().day();
+
+  if (Hor == 23 && Min == 59 && Sec == 59){
+    Dia += 1;}
+  falta = (22 - Dia);  
+
+ if(falta > 4){
+  if(Hor == 13 && Min == 07 && Sec == 50){
+  for(pos = 40; pos < 80; pos++)
+  {
+    s.write(pos);
+  delay(15);
+  }}
+  if(Hor == 13 && Min == 8 && Sec ==01 ){
+
+  for(pos = 80; pos >= 40; pos--)
+  {
+    s.write(pos);
+    delay(15);
+  }}
+ }
+
+
+// controle temperatura
+  if (t< 30) {
+    digitalWrite(AMARELO, HIGH);
+    }else{
+      digitalWrite(AMARELO, LOW);
+      }
+// controle de umidade
+      
+      if(h< 70){
+        digitalWrite(VERMELHO, HIGH);
+        }
+        else{
+          digitalWrite(VERMELHO, LOW);
+          }
+   
+ 
+}
