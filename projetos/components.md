@@ -4,6 +4,7 @@
 - 1 capacitores de 100uF/10V eletrolíticos;
 - 2 capacitores de 22pF cerâmicos;
 - 1 resistore 10k ohms de 1/4W;
+- 2 resistores de 330 ohms;
 - 1 botão para reset tipo push button;
 - 1 Módulo Relógio Tempo Real RTC – DS1307 (https://www.analog.com/media/en/technical-documentation/data-sheets/ds1307.pdf);
 - 1 Micro Servo Motor 9g SG90 180° (https://datasheetspdf.com/pdf/791970/TowerPro/SG90/1);
