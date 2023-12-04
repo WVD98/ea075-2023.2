@@ -1,12 +1,10 @@
 - 1 Microcontrolador ATMEGA328P (Datasheet: https://www.ic-components.hk/files/cb/DEV-14083.pdf);
 - 1 Cristal Oscilador 16MHz; 
-- 2 capacitores de 100nF/10V eletrolíticos;
-- 2 capacitores de 100uF/10V eletrolíticos;
+- 1 capacitores de 100nF/10V eletrolíticos;
+- 1 capacitores de 100uF/10V eletrolíticos;
 - 2 capacitores de 22pF cerâmicos;
 - 1 resistore 10k ohms de 1/4W;
-- 1 resistore 2.2k ohms de 1/4W;
 - 1 botão para reset tipo push button;
-- 1 botão para on/off tipo seletor;
 - 1 Módulo Relógio Tempo Real RTC – DS1307 (https://www.analog.com/media/en/technical-documentation/data-sheets/ds1307.pdf);
 - 1 Micro Servo Motor 9g SG90 180° (https://datasheetspdf.com/pdf/791970/TowerPro/SG90/1);
 - 1 Dimmer Triac BT137 (https://www.alldatasheet.com/view.jsp?Searchword=BT137);
@@ -16,5 +14,6 @@
 - 1 Bocal de Lamapada;
 - 1 Módulo DHT11 Sensor de Umidade e Temperatura (https://www.mouser.com/datasheet/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf);
 - 2 conectroes de 3 pinos para o DHT e Servomotor;
-- 2 conectores de 4 pinos para o sensor, LEDs, display, dimmer;
-- 1 Circuito integrado L7805 para o reguador de tensão de 5V;
+- 3 conectores de 4 pinos para o RTC, display e dimmer;
+- 1 conector de 2 pinos para o led do cooler;
+- 1 Circuito integrado LM7805 para o reguador de tensão de 5V (https://www.sparkfun.com/datasheets/Components/LM7805.pdf);
