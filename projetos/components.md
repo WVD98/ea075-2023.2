@@ -15,6 +15,6 @@
 - 1 Lampada incandescente 60W;
 - 1 Bocal de Lamapada;
 - 1 Módulo DHT11 Sensor de Umidade e Temperatura (https://www.mouser.com/datasheet/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf);
-- 1 conectroes de 3 pinos para o sinal PWM e vcc e gnd do motor;
-- 4 conectores de 4 pinos para o sensor, LEDs, display, dimmer;
+- 2 conectroes de 3 pinos para o DHT e Servomotor;
+- 2 conectores de 4 pinos para o sensor, LEDs, display, dimmer;
 - 1 Circuito integrado L7805 para o reguador de tensão de 5V;
